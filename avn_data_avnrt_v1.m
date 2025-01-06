@@ -1,4 +1,16 @@
-%%% VARIANT 1 
+%%% RABBIT MODEL DATA for VARIANT 1 
+% AVNRT in 1D multi-functional model of rabbit AV node with dual pathways
+%     (c) 2024
+%     Maxim Ryzhii, University of Aizu, Japan
+%     Elena Ryzhii, Fukushima Medical University, Japan
+%
+% Code for the paper "Atrioventricular nodal reentrant tachycardia onset, 
+% sustainability, and spontaneous termination in rabbit atrioventricular 
+% node model with autonomic nervous system control"
+% 
+%
+% Tested with MATLAB R2023b
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameters of the rabbit AVN model with ANS control
 
 function [Str,ap]= avn_data_avnrt_v1()
@@ -87,7 +99,7 @@ eps0 = [ 0.040 0.036 0.025 0.025 0.018 0.018 0.018 ...
 % ----------- COUPLING
 dx = [ 43 47 49 56 68 95 ...   
        95 84 70 64 62 60 59 59 55 ... 
-       80 50 50 70 90 100; ...
+       80 80 100 120 130 130; ...
        0  0  0  0  0  0 ...
        59 57 57 56 56   ...
        53 32 32 32 ...
@@ -111,7 +123,7 @@ ady = [  0 0 0 0 0 1 1 ...
 drnd = [1;  0.075; 0.125]; % Parameters for random generator
 
 ap.pulse_width = 0.001;  % [s]
-ap.pulse_amp =  -280.0; 
+ap.pulse_amp =  -320.0; 
 ap.Tc = TC;
 ap.a = aa; 
 ap.b = bAP;
